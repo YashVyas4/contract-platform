@@ -1,73 +1,82 @@
-# React + TypeScript + Vite
+Contract Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a frontend Contract Management Platform built using React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+The application allows users to create contract templates (called blueprints), generate contracts from those templates, and manage each contract through a defined lifecycle such as approval, sending, signing, and final locking.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+ Project Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The main idea behind this project is to simplify how contracts are created and managed.
 
-## Expanding the ESLint configuration
+Instead of writing a new contract from scratch every time, users can first define a blueprint that contains the structure and fields of a contract. Using this blueprint, multiple contracts can be created and tracked.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Each contract follows a clear lifecycle so that its current state is always known.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+ Objective of the Project
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The objectives of this project are:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- To design a structured frontend for managing contracts
+- To demonstrate reusable and modular React components
+- To implement a real-world workflow using a contract lifecycle
+- To use TypeScript for better code clarity and safety
+- To create a scalable base that can be extended with backend integration
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+ Technologies Used
+
+The project is built using the following technologies:
+
+- React for building the user interface
+- TypeScript for type-safe development
+- Vite as the build tool and development server
+- CSS for styling
+- ESLint for maintaining code quality
+
+---
+
+ Project Structure
+
+The repository follows a clean and organized structure:
+contract-platform/
+├── public/
+│ └── index.html
+│
+├── src/
+│ ├── components/
+│ │ ├── common/
+│ │ └── blueprint/
+│ ├── pages/
+│ ├── assets/
+│ ├── App.tsx
+│ └── main.tsx
+│
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
+---
+
+How the Application Works
+
+Contract Blueprints
+
+Blueprints define the structure of a contract. They include the fields and layout that every contract created from them will follow.
+
+Contract Creation
+
+Using a blueprint, users can create individual contracts without redefining the structure every time.
+
+Contract Lifecycle
+
+Each contract moves through a predefined sequence of states:
+
+Created → Approved → Sent → Signed → Locked or Revoked
+
+This lifecycle reflects how contracts are handled in real-world systems and ensures clarity about the current status of each contract.
+
